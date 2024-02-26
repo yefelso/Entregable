@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Producto</title>
+    <link rel="stylesheet" href="rproductos.css"> <!-- Enlace a tu archivo de estilos CSS -->
+</head>
+<body>
+
+    <div id="registrar-producto-container">
+
+        <h2>Registrar Producto</h2>
+
+        <form action="rproductos.php" method="post" enctype="multipart/form-data">
+            <!-- enctype="multipart/form-data" es necesario para manejar archivos como imágenes -->
+
+            <label for="nombre">Nombre del Producto:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <br>
+
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" name="descripcion" required></textarea>
+            <br>
+
+            <label for="precio">Precio:</label>
+            <input type="number" id="precio" name="precio" step="0.01" required>
+            <br>
+
+            <label for="imagen">Imagen:</label>
+            <input type="file" id="imagen" name="imagen">
+            <br>
+
+            <label for="stock">Stock:</label>
+            <input type="number" id="stock" name="stock" required>
+            <br>
+
+            <input type="submit" value="Registrar Producto">
+        </form>
+
+        <p><a href="index.html">Volver al Inicio</a></p> <!-- Enlace para volver a la página de inicio -->
+
+    </div>
+
+</body>
+</html>
