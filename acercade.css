@@ -1,0 +1,88 @@
+/* Reset de estilos para garantizar consistencia en diferentes navegadores */
+body,
+h1,
+h2,
+p,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(209, 137, 3); /* Color maztaza ocre oscuro */
+}
+
+header {
+    background-color: black; /* Tono fucsia */
+    padding: 10px;
+    text-align: center;
+    color:white;
+}
+
+nav {
+    margin-top: 20px;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: white;
+}
+
+main {
+    text-align: left; /* Alinea el texto a la izquierda */
+    padding: 20px;
+    color:white;
+}
+
+main h2 {
+    color: blueviolet; /* Tono fucsia */
+}
+
+main p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+li{
+    font-size:25px;
+
+}
+#about img {
+    width: 950px; /* Ajusta el ancho deseado en píxeles */
+    height: 720px; /* Ajusta la altura deseada en píxeles */
+    float: left; /* Flota la imagen a la izquierda del texto */
+    margin-right: 50px; /* Ajusta el margen para separar la imagen del texto */
+}
+
+
+#about p {
+    margin-left: 0; /* Asegura que el margen izquierdo del párrafo sea cero para alinearse con la imagen */
+}
+
+#services ul {
+    list-style-type: none;
+}
+
+footer {
+    background-color: black; /* Tono fucsia */
+    color: white; /* Agregué color blanco al texto */
+    padding: 30px;
+    text-align: center;
+    position: absolute; /* Posiciona el footer de manera absoluta */
+    width: 96.85%; /* Asegura que el footer tenga el ancho completo */
+    bottom: 0; /* Posiciona el footer en la parte inferior */
+}
+
+.social-icons {
+    display: inline-block;
+}
+
+.social-icons a {
+    margin-right: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+}
