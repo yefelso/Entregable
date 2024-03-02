@@ -100,7 +100,6 @@
             <button onclick="sendMessage()">Enviar</button>
         </div>
     </div>
-
     <script>
         $(document).ready(function() {
             $('#id_producto, #cantidad').change(function() {
@@ -137,6 +136,8 @@
             chatMessages.appendChild(newMessage);
         });
     </script>
+
+   <!-- Código de instalación Cliengo para software.com --> <script type="text/javascript">(function () { var ldk = document.createElement('script'); ldk.type = 'text/javascript'; ldk.async = true; ldk.src = 'https://s.cliengo.com/weboptimizer/65e35e4c77aaf4003255a45f/65e35e4e77aaf4003255a462.js?platform=dashboard'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ldk, s); })(); </script>
 
 </body>
 </html>

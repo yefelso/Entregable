@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px; /* Aumenta el ancho del contenedor para acomodar más imágenes */
+    margin: 0 auto;
+    display: flex; /* Usa flexbox para que las imágenes estén en una fila */
+    flex-wrap: wrap; /* Permite que las imágenes se envuelvan a la siguiente fila si no hay espacio suficiente */
+    justify-content: space-around; /* Distribuye las imágenes equitativamente en el contenedor */
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background-color: #fff;
+    width: 30%;
+    box-sizing: border-box;
+    max-height: 400px; /* Ajusta la altura máxima según tus preferencias */
+}
+
+.product-image-container {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.product-image-container img {
+    width: 100%;
+    height: auto;
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.price {
+    color: green;
+    font-weight: bold;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+.image-container {
+    max-width: 100%;
+    height: 150px; /* Ajusta la altura según tus preferencias */
+    overflow: hidden;
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+}
+
+/* Estilos para las imágenes dentro del contenedor */
+.image-container img {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+}

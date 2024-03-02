@@ -88,6 +88,7 @@ def check_all_messages(message):
     response('Estoy bien y tú?', ['como', 'estas', 'va', 'vas', 'sientes'], required_words=['como'])
     response('Estamos ubicados en la calle 23 numero 123', ['ubicados', 'direccion', 'donde', 'ubicacion'], single_response=True)
     response('Siempre a la orden', ['gracias', 'te lo agradezco', 'thanks'], single_response=True)
+    response('que tal', ['hola', 'klk', 'saludos', 'buenas'], single_response=True)
 
     best_match = max(highest_prob, key=highest_prob.get)
     return unknown() if highest_prob[best_match] < 1 else best_match
