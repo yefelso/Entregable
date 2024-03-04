@@ -75,7 +75,7 @@
             <input type="submit" value="Confirmar Compra">
             <!-- Agregamos un nuevo botón para mostrar el chat -->
 
-        <p><a href="loguin.html">Volver al Inicio</a></p> <!-- Enlace para volver a la página de inicio -->
+        <p><a href="paginap.html">Volver al Inicio</a></p> <!-- Enlace para volver a la página de inicio -->
 
     </div>
 
