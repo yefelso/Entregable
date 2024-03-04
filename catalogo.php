@@ -1,7 +1,18 @@
 <?php
-    // Supongamos que $idProductoAgregado es el id del producto que se añadió al carrito
-    session_start();
-    $_SESSION['producto_seleccionado'] = $idProductoAgregado;
+// Inicializar la sesión
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['id_producto'])) {
+        $idProductoAgregado = intval($_POST['id_producto']);
+        $_SESSION['producto_seleccionado'] = $idProductoAgregado;
+        header('Location: compra.php');  // Redirige a la página de compra después de seleccionar un producto
+        exit();
+    } else {
+        echo "Error: No se seleccionó ningún producto.";
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -17,44 +28,51 @@
 
 <div class="container">
 
-    <?php
-    // Conexi�n a la base de datos (ajusta las credenciales seg�n tu configuraci�n)
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "happy";
+<?php
+// Conexión a la base de datos (ajusta las credenciales según tu configuración)
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "happy";
 
-    $conn = new mysqli($servername, $username, $password, $database);
+$conn = new mysqli($servername, $username, $password, $database);
 
-    if ($conn->connect_error) {
-        die("Conexi�n fallida: " . $conn->connect_error);
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+}
+
+// Consulta para obtener productos desde la base de datos
+$sql = "SELECT id_producto, nombre, descripcion, precio, imagen FROM productos";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        // Mostrar información del producto
+        echo '<div class="product-card">';
+        echo '<div class="image-container">';
+        echo '<img src="' . $row["imagen"] . '" alt="' . $row["nombre"] . '">';
+        echo '</div>';
+        echo '<div class="product-info">';
+        echo '<h2>' . $row["nombre"] . '</h2>';
+        echo '<p>' . $row["descripcion"] . '</p>';
+        echo '<p class="price">Precio: s/' . $row["precio"] . '</p>';
+
+        // Formulario para agregar al carrito
+        echo '<form action="compra.php" method="post">';
+        echo '<input type="hidden" name="id_producto" value="' . $row['id_producto'] . '">';
+        echo '<button type="submit">Añadir al Carrito</button>';
+        echo '</form>';
+
+        echo '</div>';
+        echo '</div>';
     }
+} else {
+    echo "No hay productos disponibles.";
+}
 
-    // Consulta para obtener productos desde la base de datos
-    $sql = "SELECT id_producto, nombre, descripcion, precio, imagen FROM productos";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            echo '<div class="product-card">';
-            echo '<div class="image-container">'; // Nuevo contenedor para la imagen
-            echo '<img src="' . $row["imagen"] . '" alt="' . $row["nombre"] . '">';
-            echo '</div>';
-            echo '<div class="product-info">';
-            echo '<h2>' . $row["nombre"] . '</h2>';
-            echo '<p>' . $row["descripcion"] . '</p>';
-            echo '<p class="price">Precio: s/' . $row["precio"] . '</p>';
-            echo '<a href="compra.php"><button>Añadir al Carrito</button></a>';
-            echo '</div>';
-            echo '</div>';
-        }
-    } else {
-        echo "No hay productos disponibles.";
-    }
-
-    // Cerrar la conexi�n
-    $conn->close();
-    ?>
+// Cerrar la conexión
+$conn->close();
+?>
 
 </div>
 

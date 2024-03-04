@@ -13,14 +13,6 @@
 <body>
 
     <!-- Encabezado con dos enlaces -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="loguin.html">Inicio</a></li>
-                <li><a href="#">Otro Enlace</a></li>
-            </ul>
-        </nav>
-    </header>
 
     <div id="registrar-pago-container">
 
@@ -82,24 +74,11 @@
 
             <input type="submit" value="Confirmar Compra">
             <!-- Agregamos un nuevo botón para mostrar el chat -->
-            <input type="button" value="Mostrar Chat" onclick="mostrarChat()">
-        </form>
 
         <p><a href="loguin.html">Volver al Inicio</a></p> <!-- Enlace para volver a la página de inicio -->
 
     </div>
 
-    <div id="chat-container">
-        <div id="chat-header">
-            <h3>Chat en línea</h3>
-            <button onclick="toggleChat()">Cerrar</button>
-        </div>
-        <div id="chat-messages"></div>
-        <div id="chat-input">
-            <input type="text" id="message-input" placeholder="Escribe tu mensaje">
-            <button onclick="sendMessage()">Enviar</button>
-        </div>
-    </div>
     <script>
         $(document).ready(function() {
             $('#id_producto, #cantidad').change(function() {
@@ -111,30 +90,6 @@
             });
         });
 
-        function mostrarChat() {
-            toggleChat();
-        }
-
-        function toggleChat() {
-            var chatContainer = document.getElementById("chat-container");
-            chatContainer.classList.toggle("chat-open");
-        }
-
-        function sendMessage() {
-            var messageInput = document.getElementById("message-input");
-            var message = messageInput.value;
-
-            Chat21.sendMessage("ID_DEL_USUARIO", message);
-
-            messageInput.value = "";
-        }
-
-        Chat21.addMessageListener(function (message) {
-            var chatMessages = document.getElementById("chat-messages");
-            var newMessage = document.createElement("div");
-            newMessage.textContent = message.text;
-            chatMessages.appendChild(newMessage);
-        });
     </script>
 
    <!-- Código de instalación Cliengo para software.com --> <script type="text/javascript">(function () { var ldk = document.createElement('script'); ldk.type = 'text/javascript'; ldk.async = true; ldk.src = 'https://s.cliengo.com/weboptimizer/65e35e4c77aaf4003255a45f/65e35e4e77aaf4003255a462.js?platform=dashboard'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ldk, s); })(); </script>

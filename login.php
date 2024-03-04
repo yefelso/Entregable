@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["usuario_nombre"] = $row["nombre"];
 
         // Redirigir a la página de bienvenida
-        header("Location: compra.php");
+        header("Location: catalogo.php");
         exit();
     } else {
         // Credenciales inválidas
